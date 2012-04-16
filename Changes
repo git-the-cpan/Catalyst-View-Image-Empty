@@ -1,5 +1,7 @@
 Revision history for Catalyst-View-Image-Empty
 
+0.05    Fix code POD
+
 0.04    Typos in POD
 
 0.03    Mention PNG support

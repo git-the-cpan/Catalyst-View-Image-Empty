@@ -17,11 +17,11 @@ Catalyst::View::Image::Empty - View to return a 1x1 empty GIF or PNG, for buildi
 
 =head1 VERSION
 
-Version 0.04
+Version 0.05
 
 =cut
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 $VERSION = eval $VERSION;
 
@@ -50,16 +50,16 @@ GIF is default, at 43 bytes, compared to 153 bytes for a PNG.
  
 You can switch to PNG by specifying the C<format> via the config...
 
-package MyApp::View::Image::Empty;
-
-use strict;
-use warnings;
-
-use base 'Catalyst::View::Image::Empty';
-
-__PACKAGE__->config(
-	format => 'png',
-);
+ package MyApp::View::Image::Empty;
+ 
+ use strict;
+ use warnings;
+ 
+ use base 'Catalyst::View::Image::Empty';
+ 
+ __PACKAGE__->config(
+         format => 'png',
+ );
 
 =cut
 
