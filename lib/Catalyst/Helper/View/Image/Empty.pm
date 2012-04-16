@@ -62,7 +62,7 @@ use warnings;
 use base 'Catalyst::View::Image::Empty';
 
 __PACKAGE__->config(
-	format => 'gif',
+	format => 'gif',   # png is also an option
 );
 
 =head1 NAME

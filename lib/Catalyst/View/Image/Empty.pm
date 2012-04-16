@@ -13,15 +13,15 @@ has format => ( is => 'rw', isa => 'Str', default => 'gif' );
 
 =head1 NAME
 
-Catalyst::View::Image::Empty - View to return a 1x1 empty GIF, used with tracking URLs
+Catalyst::View::Image::Empty - View to return a 1x1 empty GIF or PNG, for building tracking URLs.
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 $VERSION = eval $VERSION;
 
@@ -29,7 +29,7 @@ $VERSION = eval $VERSION;
 
 =head3 Create View
 
- script/myapp_create.pl view Image::Empty Image::Empty
+ script/myapp_create.pl view My::Image::Empty Image::Empty
 
 =head3 In Your Controller
 
@@ -44,7 +44,22 @@ $VERSION = eval $VERSION;
 
 =head1 DESCRIPTION
 
-Catalyst::View::Image::Empty is a view that returns a 1x1 empty Gif for use in tracking URLs.
+Catalyst::View::Image::Empty is a view that returns a 1x1 empty GIF or PNG, for building tracking URLs.
+
+GIF is default, at 43 bytes, compared to 153 bytes for a PNG.
+ 
+You can switch to PNG by specifying the C<format> via the config...
+
+package MyApp::View::Image::Empty;
+
+use strict;
+use warnings;
+
+use base 'Catalyst::View::Image::Empty';
+
+__PACKAGE__->config(
+	format => 'png',
+);
 
 =cut
 
@@ -76,7 +91,6 @@ Rob Brown, C<< <rob at intelcompute.com> >>
 Please report any bugs or feature requests to C<bug-catalyst-view-image-empty at rt.cpan.org>, or through
 the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Catalyst-View-Image-Empty>.  I will be notified, and then you will
 automatically be notified of progress on your bug as I make changes.
-
 
 =head1 SUPPORT
 

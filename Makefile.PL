@@ -16,7 +16,7 @@ WriteMakefile(
         'Test::More' => 0,
         'Moose' => 0,
         'Catalyst::View' => 0,
-        'Image::Empty' => 0,
+        'Image::Empty' => 0.17,
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'Catalyst-View-Image-Empty-*' },
