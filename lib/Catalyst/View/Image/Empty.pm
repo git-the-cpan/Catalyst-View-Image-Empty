@@ -17,11 +17,11 @@ Catalyst::View::Image::Empty - View to return a 1x1 empty GIF or PNG, for buildi
 
 =head1 VERSION
 
-Version 0.03
+Version 0.04
 
 =cut
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 $VERSION = eval $VERSION;
 
@@ -37,7 +37,7 @@ $VERSION = eval $VERSION;
  {
          my ( $self, $c ) = @_;
          
-         $c->detach('View::Image::Empty');
+         $c->detach('View::My::Image::Empty');
  }
 
 =cut
