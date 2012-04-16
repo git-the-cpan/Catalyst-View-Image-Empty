@@ -17,27 +17,21 @@ Catalyst::View::Image::Empty - View to return a 1x1 empty GIF, used with trackin
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 $VERSION = eval $VERSION;
 
 =head1 SYNOPSIS
 
-Catalyst::View::Image::Empty is a view that returns a 1x1 empty Gif for use in tracking URLs.
-
-=cut
-
-=head1 USAGE
-
-=head2 Create View
+=head3 Create View
 
  script/myapp_create.pl view Image::Empty Image::Empty
 
-=head2 In Your Controller
+=head3 In Your Controller
 
  sub tracker :Local
  {
@@ -45,6 +39,12 @@ Catalyst::View::Image::Empty is a view that returns a 1x1 empty Gif for use in t
          
          $c->detach('View::Image::Empty');
  }
+
+=cut
+
+=head1 DESCRIPTION
+
+Catalyst::View::Image::Empty is a view that returns a 1x1 empty Gif for use in tracking URLs.
 
 =cut
 
@@ -119,5 +119,5 @@ See http://dev.perl.org/licenses/ for more information.
 
 =cut
 
-1; # End of Catalyst::View::Image::Empty
+1;
 
