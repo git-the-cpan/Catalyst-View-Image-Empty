@@ -9,7 +9,8 @@ extends 'Catalyst::View';
 
 use Image::Empty;
 
-has format => ( is => 'rw', isa => 'Str', default => 'gif' );
+has format   => ( is => 'ro', isa => 'Str', default => 'gif' );
+has filename => ( is => 'ro', isa => 'Str' );
 
 =head1 NAME
 
@@ -17,11 +18,11 @@ Catalyst::View::Image::Empty - View to return a 1x1 empty GIF or PNG, for buildi
 
 =head1 VERSION
 
-Version 0.05
+Version 0.06
 
 =cut
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 $VERSION = eval $VERSION;
 
@@ -46,9 +47,9 @@ $VERSION = eval $VERSION;
 
 Catalyst::View::Image::Empty is a view that returns a 1x1 empty GIF or PNG, for building tracking URLs.
 
-GIF is default, at 43 bytes, compared to 153 bytes for a PNG.
+GIF is default.
  
-You can switch to PNG by specifying the C<format> via the config...
+You can switch to PNG by specifying the C<format> in the config.
 
  package MyApp::View::Image::Empty;
  
@@ -61,6 +62,8 @@ You can switch to PNG by specifying the C<format> via the config...
          format => 'png',
  );
 
+C<filename> is another config option you can change, the default filename you would see if you "Save Page As..." in a browser.
+
 =cut
 
 sub process
@@ -70,6 +73,8 @@ sub process
 	my $format = $self->format;
 		
 	my $empty = Image::Empty->$format;
+	
+	$empty->filename( $self->filename ) if $self->filename;
    
 	$c->response->content_type( $empty->type );
 	$c->response->content_length( $empty->length );
